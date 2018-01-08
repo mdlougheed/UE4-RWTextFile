@@ -8,15 +8,23 @@
 
 #pragma once
 
+
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+
+#include <FileHelper.h>
+#include <Paths.h>
+#include <PlatformFilemanager.h>
+
 #include "RWTextFile.generated.h"
+
+
 
 /**
 *
 */
 UCLASS()
-class WAVEWORKSTESTER_API URWTextFile : public UBlueprintFunctionLibrary
+class RWTEXTPROJECT_API URWTextFile : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY() public:
 
@@ -26,7 +34,7 @@ class WAVEWORKSTESTER_API URWTextFile : public UBlueprintFunctionLibrary
 		*	@param FileName			File name - in project folder.
 		*	@param ReadText			The text in text file
 		*/
-		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "ReadTxt"))
+		UFUNCTION(BlueprintPure, Category = "RWTextFile", meta = (Keywords = "ReadTxt"))
 			static bool ReadTxt(FString FileName, FString& ReadText);
 
 		/**
@@ -36,7 +44,7 @@ class WAVEWORKSTESTER_API URWTextFile : public UBlueprintFunctionLibrary
 		*	@param SaveText			Text string to write to file
 		*	@param FileName			File name - stored in project folder.
 		*/
-		UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "WriteLn"))
+		UFUNCTION(BlueprintCallable, Category = "RWTextFile", meta = (Keywords = "WriteLn"))
 			static bool WriteLn(FString SaveText, FString FileName);
 
 		/**
@@ -45,7 +53,7 @@ class WAVEWORKSTESTER_API URWTextFile : public UBlueprintFunctionLibrary
 		*	@param SaveText			Text string to append to file
 		*	@param FileName			File name - stored in project folder.
 		*/
-		UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "AppendLn"))
+		UFUNCTION(BlueprintCallable, Category = "RWTextFile", meta = (Keywords = "AppendLn"))
 			static bool AppendLn(FString SaveText, FString FileName);
 
 };
